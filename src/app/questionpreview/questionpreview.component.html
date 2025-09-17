@@ -1,0 +1,18 @@
+<div class="p-3">
+  <h3>Preview</h3>
+  <p>
+    <ng-container *ngFor="let part of parsedElements">
+      <!-- Show plain text -->
+      <ng-container *ngIf="!isOptionArray(part)">
+        {{ part }}
+      </ng-container>
+
+      <!-- Show dropdown if it's an array -->
+      <ng-container *ngIf="isOptionArray(part)">
+        <select class="form-select d-inline w-auto mx-1">
+          <option *ngFor="let opt of part">{{ opt }}</option>
+        </select>
+      </ng-container>
+    </ng-container>
+  </p>
+</div>
